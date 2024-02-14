@@ -23,7 +23,11 @@ const MainRoutes = () => {
   ];
   return (
     <div>
-      <Routes></Routes>
+      <Routes>
+        {PUBLIC_ROUTES.map((elem) => (
+          <Route path={elem.link} key={elem.id} element={elem.element} />
+        ))}
+      </Routes>
     </div>
   );
 };
