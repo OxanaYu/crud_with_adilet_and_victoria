@@ -1,7 +1,7 @@
 import React from "react";
 
 const BookMark = () => {
-  return <div>BookMark</div>;
+  return <div></div>;
 };
 
 export default BookMark;
