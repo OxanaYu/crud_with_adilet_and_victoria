@@ -1,60 +1,92 @@
-import React, { createContext, useContext, useState } from "react";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 
 import { useNavigate } from "react-router-dom";
-import fire from "../../fire";
-export const authContext = createContext();
+import { auth } from "../../fire";
+import { ACTIONS_USER } from "../../helpers/const";
+const authContext = createContext();
 export const useAuth = () => useContext(authContext);
+
+const INIT_STATE = {
+  user: null,
+};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case ACTIONS_USER.CHECK_USER:
+      return { ...state, user: action.payload };
+    default:
+      return state;
+  }
+};
 const AuthContext = ({ children }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [hasAccount, setHasAccount] = useState("");
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
-  const clearInputs = () => {
-    setEmail("");
-    setPassword("");
-  };
-  const clearError = () => {
-    setEmailError("");
-    setPasswordError("");
-  };
-  // ! Register start
-  const handleRegister = () => {
-    clearError();
-    fire
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch((error) => {
-        switch (error.code) {
-          case "auth/email-already-in-use":
-          case "auth/invalid-email":
-            setEmailError(error.message);
-            break;
-          case "auth/weak-password":
-            setPasswordError(error.message);
-            break;
-          default:
-        }
+  const checkUser = () => {
+    onAuthStateChanged(auth, (user) => {
+      dispatch({
+        type: ACTIONS_USER.CHECK_USER,
+        payload: user,
       });
+    });
   };
-  const values = {
-    user,
-    email,
-    password,
-    emailError,
-    passwordError,
-    hasAccount,
-    setHasAccount,
-    setUser,
-    setEmail,
-    setPassword,
-    setEmailError,
-    setPasswordError,
-    handleRegister,
+  useEffect(() => {
+    checkUser();
+  }, []);
+  const authWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      console.log(error);
+    }
+    navigate("/");
+  };
+  // const register = (email, password) => {
+  //   return createUserWithEmailAndPassword(auth, email, password);
+  // };
+
+  const register = async (email, password) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      console.log("User registered:", user);
+      return user;
+    } catch (error) {
+      console.error("Error registering user:", error);
+      throw error;
+    }
   };
 
+  const logIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
+    navigate("/");
+  };
+  const values = {
+    authWithGoogle,
+    register,
+    logIn,
+    logOut,
+    user: state.user,
+  };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };
 

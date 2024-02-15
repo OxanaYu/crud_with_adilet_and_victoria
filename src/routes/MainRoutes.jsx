@@ -10,6 +10,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { ADMIN } from "../helpers/const";
 import { useAuth } from "../components/context/AuthContext";
 import AuthPage from "../pages/AuthPage";
+import Login from "../components/auth/Login";
 
 const MainRoutes = () => {
   const { user } = useAuth();
@@ -20,11 +21,12 @@ const MainRoutes = () => {
     { id: 4, link: "/cart", element: <CartPage /> },
     { id: 5, link: "/bm", element: <BookMark /> },
     { id: 6, link: "/auth", element: <AuthPage /> },
+    { id: 7, link: "/login", element: <Login /> },
   ];
 
   const PRIVATE_ROUTES = [
-    { id: 7, link: "/admin", element: <AdminPage /> },
-    { id: 8, link: "/edit/:id", element: <EditPage /> },
+    { id: 8, link: "/admin", element: <AdminPage /> },
+    { id: 9, link: "/edit/:id", element: <EditPage /> },
   ];
   return (
     <div>
