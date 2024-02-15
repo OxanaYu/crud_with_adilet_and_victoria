@@ -1,3 +1,52 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/08/cover-vidy-kontenta-i-idei-dlya-posta-v-instagram.jpg",
+      "name": "sawdecfv",
+      "description": "swadecfv",
+      "id": 1
+    },
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-obychaushij-post.png",
+      "name": "Альбом",
+      "description": "бла бла бла",
+      "id": 3
+    },
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/08/cover-ideya-iz-zhizni.png",
+      "name": "Альбом",
+      "description": "Просто альбом",
+      "id": 4
+    },
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-serial.png",
+      "name": "Альбом",
+      "description": "Тоже просто Альбом",
+      "id": 5
+    },
+    {
+      "photo": "https://e-pepper.ru/upload/resize_cache/iblock/60f/846_665_0/60f06742c3f014223df89d0ba9b6dcef.png",
+      "name": "Корзина",
+      "description": "Красивая корзинка",
+      "id": 6
+    },
+    {
+      "photo": "https://static.tildacdn.com/tild6536-6339-4639-a563-306636363664/blog_loyal.png",
+      "name": "Подарок",
+      "description": "Просто подарок",
+      "id": 7
+    },
+    {
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKYEb-fo0W_NmexYjR5OWlRzegVktJwkhBZz7IWad8yBcg9xd8I-2MCHuO1P0sAAJLWZM&usqp=CAU",
+      "name": "Кошелек",
+      "description": "Просто кошелек",
+      "id": 8
+    },
+    {
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqhcZMz0t6uolknzsTQXodiz59t5ZeLpq5gzcGrnjhuX8O7Aj9lruYPSIPvnP8uOEcO1s&usqp=CAU",
+      "name": "Карта",
+      "description": "СберБанк наше все!",
+      "id": 9
+    }
+  ]
 }

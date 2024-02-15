@@ -15,6 +15,7 @@ const MainRoutes = () => {
     { id: 3, link: "/about", element: <AboutPage /> },
     { id: 4, link: "/cart", element: <CartPage /> },
     { id: 5, link: "/bm", element: <BookMark /> },
+    { id: 6, link: "/edit/:id", element: <EditPage /> },
   ];
 
   const PRIVATE_ROUTES = [

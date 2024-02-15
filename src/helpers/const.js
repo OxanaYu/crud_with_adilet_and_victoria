@@ -1,4 +1,4 @@
-export const API = "http://localhost:8000/posts";
+export const API = "http://localhost:8000/posts/";
 
 export const ACTIONS = {
   GET_POSTS: "GET_POSTS",
