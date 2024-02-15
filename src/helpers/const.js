@@ -1,8 +1,5 @@
 export const API = "http://localhost:8000/posts";
-export const ADMIN = "admin@gmail.com";
-export const ACTIONS_USER = {
-  CHECK_USER: "CHECK_USER",
-};
+
 export const ACTIONS = {
   GET_POSTS: "GET_POSTS",
   GET_ONE_POST: "GET_ONE_POST",

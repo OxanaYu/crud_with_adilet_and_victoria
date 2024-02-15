@@ -21,9 +21,6 @@ const MainRoutes = () => {
     { id: 3, link: "/about", element: <AboutPage /> },
     { id: 4, link: "/cart", element: <CartPage /> },
     { id: 5, link: "/bm", element: <BookMark /> },
-    { id: 6, link: "/auth", element: <AuthPage /> },
-    { id: 7, link: "/login", element: <Login /> },
-    { id: 8, link: "*", element: <NoteFoundPage /> },
   ];
 
   return (

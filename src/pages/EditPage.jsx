@@ -1,7 +1,12 @@
 import React from "react";
+import EditPost from "../components/posts/EditPost";
 
 const EditPage = () => {
-  return <div>EditPage</div>;
+  return (
+    <div>
+      <EditPost />
+    </div>
+  );
 };
 
 export default EditPage;
