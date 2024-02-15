@@ -1,4 +1,4 @@
-import { CheckBox } from "@mui/icons-material";
+import React, { useState } from "react";
 import {
   Alert,
   Button,
@@ -10,20 +10,19 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-
-const Auth = () => {
-  const { authWithGoogle, register } = useAuth();
+const Login = () => {
+  const { user, logIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = async (e) => {
+
+  const handleLoginSubmit = async () => {
     try {
-      await register(email, password);
-      navigate("/login");
+      await logIn(email, password);
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }
@@ -47,7 +46,7 @@ const Auth = () => {
             fontSize: "32px",
           }}
         >
-          Sign Up
+          Sign In
         </Typography>
         <TextField
           sx={{ marginTop: "30px", width: "40%" }}
@@ -62,27 +61,19 @@ const Auth = () => {
         <Button
           sx={{ marginTop: "30px", width: "40%" }}
           variant="contained"
-          onClick={handleSubmit}
+          onClick={handleLoginSubmit}
         >
-          Sign Up
+          Sign In
         </Button>
-        <Button
-          sx={{ marginTop: "30px", width: "40%" }}
-          variant="contained"
-          onClick={() => authWithGoogle()}
-        >
-          Continue with Google
-        </Button>
-        <FormControl>
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Remember me"
-            sx={{ marginTop: "30px" }}
-          />
-        </FormControl>
+        <div style={{ marginTop: "15px", marginLeft: "160px" }}>
+          Don't have an account?{" "}
+          <Link to="/auth" style={{ marginLeft: "10px", color: "blue" }}>
+            Sign Up
+          </Link>
+        </div>
       </Grid>
     </>
   );
 };
 
-export default Auth;
+export default Login;

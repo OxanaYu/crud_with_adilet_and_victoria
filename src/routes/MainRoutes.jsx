@@ -6,22 +6,23 @@ import CartPage from "../pages/CartPage";
 import BookMark from "../pages/BookMark";
 import AdminPage from "../pages/AdminPage";
 import EditPage from "../pages/EditPage";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { ADMIN } from "../helpers/const";
+import { useAuth } from "../components/context/AuthContext";
+import AuthPage from "../pages/AuthPage";
+import Login from "../components/auth/Login";
+import NoteFoundPage from "../pages/NoteFoundPage";
 
 const MainRoutes = () => {
+  const { user } = useAuth();
   const PUBLIC_ROUTES = [
     { id: 1, link: "/", element: <HomePage /> },
     { id: 2, link: "/posts", element: <PostPage /> },
     { id: 3, link: "/about", element: <AboutPage /> },
     { id: 4, link: "/cart", element: <CartPage /> },
     { id: 5, link: "/bm", element: <BookMark /> },
-    { id: 6, link: "/edit/:id", element: <EditPage /> },
   ];
 
-  const PRIVATE_ROUTES = [
-    { id: 9, link: "/admin", element: <AdminPage /> },
-    { id: 8, link: "/edit/:id", element: <EditPage /> },
-  ];
   return (
     <div>
       <Routes>
