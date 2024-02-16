@@ -16,15 +16,36 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 import { AccountCircle } from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { usePosts } from "../context/PostContext";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useCart } from "../context/CartContext";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Navbar = () => {
   const { user, LogOut } = useAuth;
   const { likesCount } = usePosts();
+  const { addPostToCard, getProductsCountInCart } = useCart();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+  const [badgeCount, setBadgeCount] = useState(0);
+  useEffect(() => {
+    setBadgeCount(getProductsCountInCart());
+  }, [addPostToCard]);
+
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+
+  const pages = [
+    { id: 1, title: "Posts", link: "/posts" },
+    { id: 2, title: "Add Post", link: "/admin" },
+    { id: 3, title: "Bookmarks", link: "/bm" },
+  ];
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -55,12 +76,23 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
-          </Typography>
+          </Typography> */}
+          {pages.map((elem) => (
+            <MenuItem key={elem.id}>
+              <Link
+                to={elem.link}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <Typography textAlign="center">{elem.title}</Typography>
+              </Link>
+            </MenuItem>
+          ))}
           <Grid container justifyContent="center">
             <Grid item>
               <TextField
+                onChange={(e) => setSearch(e.target.value)}
                 sx={{
                   "& .MuiFilledInput-root": {
                     backgroundColor: "transparent", // чтобы сохранить границы
@@ -74,9 +106,10 @@ const Navbar = () => {
                   },
                 }}
                 id="outlined-search"
-                label="Search"
+                label="search..."
                 type="search"
-                // variant="filled"
+                fullWidth
+                variant="standard"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -87,9 +120,14 @@ const Navbar = () => {
               />
             </Grid>
           </Grid>
+          <Link to={"/cart"}>
+            <Badge badgeContent={badgeCount} color="success">
+              <ShoppingCartIcon sx={{ color: "white" }} />
+            </Badge>
+          </Link>
 
           <IconButton size="large" color="inherit">
-            <Badge badgeContent={likesCount} color="error">
+            <Badge badgeContent={likesCount} color="success">
               <FavoriteIcon />
             </Badge>
           </IconButton>

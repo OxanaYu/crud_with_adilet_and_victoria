@@ -36,13 +36,13 @@ const PostContext = ({ children }) => {
   //* CREATE
   const addPost = async (newProduct) => {
     await axios.post(API, newProduct);
-    // navigate("/");
+    navigate("/posts");
     console.log(newProduct);
   };
 
   //* GET
   const getPost = async () => {
-    const { data } = await axios(API);
+    const { data } = await axios(`${API}${window.location.search}`);
     dispatch({
       type: ACTIONS.GET_POSTS,
       payload: data,
