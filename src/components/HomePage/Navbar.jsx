@@ -1,6 +1,7 @@
 import {
   AppBar,
   Avatar,
+  Badge,
   Box,
   Grid,
   IconButton,
@@ -18,9 +19,12 @@ import { AccountCircle } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { usePosts } from "../context/PostContext";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const Navbar = () => {
   const { user, LogOut } = useAuth;
+  const { likesCount } = usePosts();
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -83,6 +87,12 @@ const Navbar = () => {
               />
             </Grid>
           </Grid>
+
+          <IconButton size="large" color="inherit">
+            <Badge badgeContent={likesCount} color="error">
+              <FavoriteIcon />
+            </Badge>
+          </IconButton>
 
           {user ? (
             <Tooltip title={user.email}>

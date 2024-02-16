@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { usePosts } from "../context/PostContext";
 import { useBM } from "../context/BookMarksContext";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { IconButton } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import StarOutlineTwoToneIcon from "@mui/icons-material/StarOutlineTwoTone";
 
 const PostCard = ({ elem }) => {
   const { addPostToCard, checkPostInCart } = useCart();
   const navigate = useNavigate();
-  const { deletePost } = usePosts();
+  const { deletePost, increaseLikes } = usePosts();
   const { addPostToBookmarks, checkPostInBm } = useBM();
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleAddToBookmarks = () => {
     // Проверяем, есть ли пост уже в избранном
@@ -24,6 +27,13 @@ const PostCard = ({ elem }) => {
       console.log("Пост уже в избранном");
     }
     // если пост уже добавлен, в консоли выйдет сообщение
+  };
+
+  const handleClick = () => {
+    setIsFavorite(true);
+  };
+  const handleLikeClick = () => {
+    increaseLikes(); // Вызываем функцию увеличения лайков из контекста
   };
 
   return (
@@ -60,6 +70,24 @@ const PostCard = ({ elem }) => {
         >
           <AddShoppingCart />
         </IconButton>
+        <IconButton
+          size="large"
+          color="inherit"
+          onClick={() => {
+            handleClick();
+            handleLikeClick();
+          }}
+        >
+          {isFavorite ? (
+            <FavoriteIcon style={{ color: "red" }} />
+          ) : (
+            <FavoriteBorderIcon />
+          )}
+        </IconButton>
+        <div class="input-with-button">
+          <input type="text" placeholder="Add your comment" />
+          <button type="button">Button</button>
+        </div>
       </div>
     </div>
   );

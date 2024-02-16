@@ -10,6 +10,7 @@ const INIT_STATE = {
   posts: [],
   onePost: {},
   categories: [],
+  likesCount: 0,
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -18,6 +19,8 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, posts: action.payload };
     case ACTIONS.GET_ONE_POST:
       return { ...state, onePost: action.payload };
+    case ACTIONS.INCREASE_LIKES:
+      return { ...state, likesCount: state.likesCount + 1 };
     default:
       return state;
   }
@@ -75,6 +78,10 @@ const PostContext = ({ children }) => {
     navigate("/posts");
   };
 
+  const increaseLikes = () => {
+    dispatch({ type: ACTIONS.INCREASE_LIKES });
+  };
+
   const values = {
     posts: state.posts,
     addPost,
@@ -83,6 +90,8 @@ const PostContext = ({ children }) => {
     editPost,
     getOnePost,
     onePost: state.onePost,
+    likesCount: state.likesCount,
+    increaseLikes,
   };
   return (
     <postsContext.Provider value={values}>{children}</postsContext.Provider>

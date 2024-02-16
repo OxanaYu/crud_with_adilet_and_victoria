@@ -199,3 +199,30 @@ body {
     opacity: 0;
   }
 }
+
+.input-with-button {
+  position: relative;
+  display: inline-block;
+}
+
+.input-with-button input[type="text"] {
+  padding-right: 40px;
+}
+
+.input-with-button button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.input-with-button input[type="text"],
+.input-with-button button {
+  height: 30px;
+  vertical-align: middle;
+  border-radius: 14px;
+  border: 1px solid lightgray;
+}
+
+.input-with-button button {
+  height: 34px;
+}
