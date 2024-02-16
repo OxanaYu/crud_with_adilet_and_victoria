@@ -2,13 +2,17 @@ import {
   AppBar,
   Avatar,
   Box,
+  Grid,
   IconButton,
+  InputAdornment,
   Menu,
   MenuItem,
+  TextField,
   Toolbar,
   Tooltip,
   Typography,
 } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 import { AccountCircle } from "@mui/icons-material";
 import { Link } from "react-router-dom";
@@ -50,6 +54,35 @@ const Navbar = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
+          <Grid container justifyContent="center">
+            <Grid item>
+              <TextField
+                sx={{
+                  "& .MuiFilledInput-root": {
+                    backgroundColor: "transparent", // чтобы сохранить границы
+                    transition: "background-color 200ms linear",
+                    "&:hover": {
+                      backgroundColor: "transparent", // изменение фона при наведении
+                    },
+                    "&:focus": {
+                      backgroundColor: "transparent", // изменение фона при фокусировке
+                    },
+                  },
+                }}
+                id="outlined-search"
+                label="Search"
+                type="search"
+                // variant="filled"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
+          </Grid>
 
           {user ? (
             <Tooltip title={user.email}>
