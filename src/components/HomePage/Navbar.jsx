@@ -5,21 +5,30 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Paper,
+  TextField,
   Toolbar,
   Tooltip,
   Typography,
 } from "@mui/material";
 
 import { AccountCircle } from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, LogOut } = useAuth;
 
   const [anchorEl, setAnchorEl] = useState(null);
-
+  // ! SEARCH
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
   const handleLogOut = () => {
     LogOut();
     handleClose(); // Закрываем меню после выхода
@@ -50,6 +59,14 @@ const Navbar = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
+          <Paper>
+            <TextField
+              onChange={(e) => setSearch(e.target.value)}
+              fullWidth
+              variant="standard"
+              label="search..."
+            />
+          </Paper>
 
           {user ? (
             <Tooltip title={user.email}>

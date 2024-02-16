@@ -7,7 +7,7 @@ import { IconButton } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
 
 const PostCard = ({ elem }) => {
-  const { addPostToCard, checkPostInCart } = useCart();
+  // const { addPostToCard,checkPostInCart } = useCart();
   const navigate = useNavigate();
   const { deletePost } = usePosts();
   const { addPostToBookmarks, checkPostInBm } = useBM();
@@ -39,11 +39,11 @@ const PostCard = ({ elem }) => {
         Add to Bookmarks
       </button>
       <IconButton
-        sx={{
-          backgroundColor: checkPostInCart(elem.id) ? "black" : "",
-          color: checkPostInCart(elem.id) ? "white" : "",
-        }}
-        onClick={() => addPostToCard(elem)}
+      // sx={{
+      //   backgroundColor: checkPostInCart(elem.id) ? "black" : "",
+      //   color: checkPostInCart(elem.id) ? "white" : "",
+      // }}
+      // onClick={() => addPostToCard(elem)}
       >
         <AddShoppingCart />
       </IconButton>

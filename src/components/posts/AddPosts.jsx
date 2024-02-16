@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { usePosts } from "../context/PostContext";
 
+import { TextField } from "@mui/material";
+
 const AddPosts = () => {
   const { addPost, getPost } = usePosts();
   const [photo, setPhoto] = useState("");
@@ -47,6 +49,7 @@ const AddPosts = () => {
           placeholder="Description"
         />
       </div>
+
       <button className="button" onClick={handleAddPost}>
         Add Post
       </button>

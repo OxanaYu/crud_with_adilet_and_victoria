@@ -3,12 +3,20 @@ import PostCard from "./PostCard";
 import { usePosts } from "../context/PostContext";
 import { Box } from "@mui/material";
 import PaginationControlled from "./Pagination";
+import { useSearchParams } from "react-router-dom";
 
 const PostList = () => {
   const { posts, getPost } = usePosts();
   useEffect(() => {
     getPost();
   }, []);
+
+  // !SEARCH
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    getPost();
+  }, [searchParams]);
 
   // !PAGINATION
 
