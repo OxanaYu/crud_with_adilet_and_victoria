@@ -49,7 +49,7 @@ const PostContext = ({ children }) => {
     await axios.delete(`${API}/${id}`);
     getPost();
   };
-  //* GET_ONE_PRODUCT
+  //* GET_ONE_POST
   const getOnePost = async (id) => {
     try {
       const { data } = await axios(`${API}/${id}`);
