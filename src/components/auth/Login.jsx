@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+
 const Login = () => {
   const { user, logIn } = useAuth();
   const [email, setEmail] = useState("");
