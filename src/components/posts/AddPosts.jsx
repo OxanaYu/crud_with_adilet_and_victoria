@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { usePosts } from "../context/PostContext";
 
-const AddPost = () => {
+const AddPosts = () => {
   const { addPost, getPost } = usePosts();
   const [photo, setPhoto] = useState("");
   const [name, setName] = useState("");
@@ -54,4 +54,4 @@ const AddPost = () => {
   );
 };
 
-export default AddPost;
+export default AddPosts;

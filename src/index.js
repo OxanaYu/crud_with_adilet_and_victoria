@@ -5,17 +5,17 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import AuthContext from "./components/context/AuthContext";
 import PostContext from "./components/context/PostContext";
-import CartContext from "./components/context/CartContext";
+import BookMarksContext from "./components/context/BookMarksContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <AuthContext>
-      <PostContext>
-        <CartContext>
+    <BookMarksContext>
+      <AuthContext>
+        <PostContext>
           <App />
-        </CartContext>
-      </PostContext>
-    </AuthContext>
+        </PostContext>
+      </AuthContext>
+    </BookMarksContext>
   </BrowserRouter>
 );
