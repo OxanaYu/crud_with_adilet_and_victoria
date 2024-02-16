@@ -47,6 +47,18 @@
       "name": "Карта",
       "description": "СберБанк наше все!",
       "id": 9
+    },
+    {
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBFrg3kfisFKU6K2P0P_ND-Cqu7lSqlbJzDEfm8ERbzA&s",
+      "name": "NewPostToCheck",
+      "description": "Nice one",
+      "id": 10
+    },
+    {
+      "photo": "jhghjg11111",
+      "name": "hkjhkj",
+      "description": "jhkhk",
+      "id": 11
     }
   ]
 }
