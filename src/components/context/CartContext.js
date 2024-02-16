@@ -31,19 +31,34 @@ const CartContext = ({ children }) => {
       localStorage.setItem(
         "cart",
         JSON.stringify({
-          products: [],
-          totalPrice: 0,
+          postsincart: [],
+          subCount: 0,
         })
       );
       cart = {
-        products: [],
-        totalPrice: 0,
+        postsincart: [],
+        subCount: 0,
       };
     }
     dispatch({
       type: ACTIONS.GET_CART,
       payload: cart,
     });
+  };
+
+  // ! CREATE
+  const addPostToCard = (post) => {
+    let cart = getLocalStorageCart();
+    if (!cart) {
+      cart = {
+        postsincart: [],
+        subCount: 0,
+      };
+    }
+    let newPostinCart = {
+      item: post,
+      count: 1,
+    };
   };
 
   return (
