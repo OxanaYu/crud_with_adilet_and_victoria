@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { IconButton } from "@mui/material";
 import { AddShoppingCart } from "@mui/icons-material";
+import StarOutlineTwoToneIcon from "@mui/icons-material/StarOutlineTwoTone";
 
 const PostCard = ({ elem }) => {
   const { addPostToCard, checkPostInCart } = useCart();
@@ -36,18 +37,30 @@ const PostCard = ({ elem }) => {
       <button className="button" onClick={() => navigate(`/edit/${elem.id}`)}>
         Edit
       </button>
-      <button className="button" onClick={handleAddToBookmarks}>
-        Add to Bookmarks
-      </button>
-      <IconButton
-        sx={{
-          backgroundColor: checkPostInCart(elem.id) ? "black" : "",
-          color: checkPostInCart(elem.id) ? "white" : "",
+      <div
+        style={{
+          marginLeft: "20px",
         }}
-        onClick={() => addPostToCard(elem)}
       >
-        <AddShoppingCart />
-      </IconButton>
+        <StarOutlineTwoToneIcon
+          onClick={handleAddToBookmarks}
+          sx={{
+            marginBottom: "-8px",
+            marginRight: "-140px",
+          }}
+        />
+
+        <IconButton
+          sx={{
+            backgroundColor: checkPostInCart(elem.id) ? "black" : "",
+            color: checkPostInCart(elem.id) ? "white" : "",
+            marginLeft: "180px",
+          }}
+          onClick={() => addPostToCard(elem)}
+        >
+          <AddShoppingCart />
+        </IconButton>
+      </div>
     </div>
   );
 };
