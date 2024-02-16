@@ -19,6 +19,17 @@ export const getProductsCountInCart = () => {
 
 // ? Сверить,что приходит в elem, какие там ключи
 //функция для подсчета стоимости за одну позицию
-// export const calcSubPrice = (elem) => {
-//   return elem.item.price * elem.count;
-// };
+export const calcSubPrice = (elem) => {
+  return elem.item.price * elem.count;
+};
+export const getLocalStorage = () => {
+  const post = JSON.parse(localStorage.getItem("bm"));
+  return post;
+};
+
+//функция для подсчета постов в избранном
+export const getPostsCountInBookmark = () => {
+  let post = getLocalStorage();
+  // console.log(post);
+  return post ? post.posts.length : 0;
+};

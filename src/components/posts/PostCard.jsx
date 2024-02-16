@@ -1,5 +1,6 @@
 import React from "react";
 import { usePosts } from "../context/PostContext";
+import { useBM } from "../context/BookMarksContext";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { IconButton } from "@mui/material";
@@ -9,6 +10,21 @@ const PostCard = ({ elem }) => {
   const { addPostToCard, checkPostInCart } = useCart();
   const navigate = useNavigate();
   const { deletePost } = usePosts();
+  const { addPostToBookmarks, checkPostInBm } = useBM();
+
+  const handleAddToBookmarks = () => {
+    // Проверяем, есть ли пост уже в избранном
+    const postInBm = checkPostInBm(elem.id);
+
+    // Если пост не в избранном, добавляем его
+    if (!postInBm) {
+      addPostToBookmarks(elem);
+    } else {
+      console.log("Пост уже в избранном");
+    }
+    // если пост уже добавлен, в консоли выйдет сообщение
+  };
+
   return (
     <div className="card">
       <img src={elem.photo} alt="" />
@@ -19,6 +35,9 @@ const PostCard = ({ elem }) => {
       </button>
       <button className="button" onClick={() => navigate(`/edit/${elem.id}`)}>
         Edit
+      </button>
+      <button className="button" onClick={handleAddToBookmarks}>
+        Add to Bookmarks
       </button>
       <IconButton
         sx={{
