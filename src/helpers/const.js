@@ -7,3 +7,7 @@ export const ACTIONS = {
   GET_MB: "GET_MB",
   GET_CART: "GET_CART",
 };
+export const ACTIONS_USER = {
+  CHECK_USER: "CHECK_USER",
+};
+export const ADMIN = "admin@gmail.com";
