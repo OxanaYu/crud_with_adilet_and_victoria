@@ -7,9 +7,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <AddPost />
-
-      <PostList />
       <MainRoutes />
     </div>
   );

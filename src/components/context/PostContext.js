@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { ACTIONS, API } from "../../helpers/const";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const postsContext = createContext();
 export const usePosts = () => useContext(postsContext);
@@ -23,6 +24,7 @@ const reducer = (state = INIT_STATE, action) => {
 };
 
 const PostContext = ({ children }) => {
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   useEffect(() => {
     console.log(state);
@@ -70,6 +72,7 @@ const PostContext = ({ children }) => {
     } catch (error) {
       console.error("Error editing post:", error);
     }
+    navigate("/posts");
   };
 
   const values = {
