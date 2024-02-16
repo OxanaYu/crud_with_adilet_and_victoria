@@ -14,7 +14,7 @@ export const calcTotalPrice = (products) => {
 // функция для подсчета всех товаров в корзине
 export const getProductsCountInCart = () => {
   let cart = getLocalStorageCart();
-  return cart ? cart.products.length : 0;
+  return cart ? cart.postsincart.length : 0;
 };
 
 // ? Сверить,что приходит в elem, какие там ключи

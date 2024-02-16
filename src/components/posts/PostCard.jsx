@@ -2,8 +2,12 @@ import React from "react";
 import { usePosts } from "../context/PostContext";
 import { useBM } from "../context/BookMarksContext";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import { IconButton } from "@mui/material";
+import { AddShoppingCart } from "@mui/icons-material";
 
 const PostCard = ({ elem }) => {
+  const { addPostToCard, checkPostInCart } = useCart();
   const navigate = useNavigate();
   const { deletePost } = usePosts();
   const { addPostToBookmarks, checkPostInBm } = useBM();
@@ -34,6 +38,15 @@ const PostCard = ({ elem }) => {
       <button className="button" onClick={handleAddToBookmarks}>
         Add to Bookmarks
       </button>
+      <IconButton
+        sx={{
+          backgroundColor: checkPostInCart(elem.id) ? "black" : "",
+          color: checkPostInCart(elem.id) ? "white" : "",
+        }}
+        onClick={() => addPostToCard(elem)}
+      >
+        <AddShoppingCart />
+      </IconButton>
     </div>
   );
 };

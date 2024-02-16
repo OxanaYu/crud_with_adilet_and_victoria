@@ -1,4 +1,4 @@
-export const API = "http://localhost:8000/posts";
+export const API = "http://localhost:8001/posts";
 
 export const ACTIONS = {
   GET_POSTS: "GET_POSTS",
@@ -6,7 +6,4 @@ export const ACTIONS = {
   GET_CATEGORIES: "GET_CATEGORIES",
   GET_MB: "GET_MB",
   GET_CART: "GET_CART",
-};
-export const ACTIONS_USER = {
-  CHECK_USER: "CHECK_USER",
 };
