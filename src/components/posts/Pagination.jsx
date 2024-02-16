@@ -5,7 +5,12 @@ const PaginationControlled = ({ count, page, handleChange }) => {
   return (
     <Stack spacing={2}>
       <Typography>Page:{page}</Typography>
-      <Pagination count={count} color="primary" onChange={handleChange} />
+      <Pagination
+        count={count}
+        variant="outlined"
+        color="secondary"
+        onChange={handleChange}
+      />
     </Stack>
   );
 };
