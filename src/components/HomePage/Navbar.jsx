@@ -73,8 +73,13 @@ const Navbar = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-      <AppBar position="static">
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: { xs: "none", md: "flex" },
+      }}
+    >
+      <AppBar sx={{ background: "#383838" }} position="static">
         <Toolbar>
           {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
@@ -92,21 +97,24 @@ const Navbar = () => {
           <Grid container justifyContent="center">
             <Grid item>
               <TextField
-                onChange={(e) => setSearch(e.target.value)}
                 sx={{
+                  background: "#686868",
+                  borderRadius: "45px",
+                  border: "3px solid #ccc",
+                  height: "27px",
                   "& .MuiFilledInput-root": {
-                    backgroundColor: "transparent", // чтобы сохранить границы
-                    transition: "background-color 200ms linear",
+                    borders: "#D0D0D0", // чтобы сохранить границы
+                    // transition: "background-color 200ms linear",
                     "&:hover": {
-                      backgroundColor: "transparent", // изменение фона при наведении
+                      backgroundColor: "#D0D0D0", // изменение фона при наведении
                     },
                     "&:focus": {
-                      backgroundColor: "transparent", // изменение фона при фокусировке
+                      backgroundColor: "#D0D0D0", // изменение фона при фокусировке
                     },
                   },
                 }}
                 id="outlined-search"
-                label="search..."
+                // label="Search"
                 type="search"
                 fullWidth
                 variant="standard"
@@ -127,7 +135,7 @@ const Navbar = () => {
           </Link>
 
           <IconButton size="large" color="inherit">
-            <Badge badgeContent={likesCount} color="success">
+            <Badge badgeContent={likesCount} color="white">
               <FavoriteIcon />
             </Badge>
           </IconButton>
