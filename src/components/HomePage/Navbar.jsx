@@ -102,16 +102,17 @@ const Navbar = () => {
                   borderRadius: "45px",
                   border: "3px solid #ccc",
                   height: "27px",
-                  "& .MuiFilledInput-root": {
-                    borders: "#D0D0D0", // чтобы сохранить границы
-                    // transition: "background-color 200ms linear",
-                    "&:hover": {
-                      backgroundColor: "#D0D0D0", // изменение фона при наведении
-                    },
-                    "&:focus": {
-                      backgroundColor: "#D0D0D0", // изменение фона при фокусировке
-                    },
-                  },
+
+                  // "&:hover": {
+                  //   textDecoration: "none",
+                  //   "& .MuiFilledInput-root": {
+                  //     borders: "#D0D0D0", // чтобы сохранить границы
+                  //     transition: "background-color 200ms linear",
+                  //   },
+                  //   "&:focus": {
+                  //     backgroundColor: "#D0D0D0", // изменение фона при фокусировке
+                  //   },
+                  // },
                 }}
                 id="outlined-search"
                 // label="Search"
@@ -119,6 +120,7 @@ const Navbar = () => {
                 fullWidth
                 variant="standard"
                 InputProps={{
+                  disableUnderline: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <SearchIcon />
