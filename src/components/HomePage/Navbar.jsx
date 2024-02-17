@@ -97,22 +97,22 @@ const Navbar = () => {
           <Grid container justifyContent="center">
             <Grid item>
               <TextField
+                onChange={(e) => setSearch(e.target.value)}
                 sx={{
                   background: "#686868",
                   borderRadius: "45px",
                   border: "3px solid #ccc",
                   height: "27px",
 
-                  // "&:hover": {
-                  //   textDecoration: "none",
-                  //   "& .MuiFilledInput-root": {
-                  //     borders: "#D0D0D0", // чтобы сохранить границы
-                  //     transition: "background-color 200ms linear",
-                  //   },
-                  //   "&:focus": {
-                  //     backgroundColor: "#D0D0D0", // изменение фона при фокусировке
-                  //   },
-                  // },
+                  "&:hover": {
+                    "& .MuiFilledInput-root": {
+                      borders: "#D0D0D0", // чтобы сохранить границы
+                      transition: "background-color 200ms linear",
+                    },
+                    "&:focus": {
+                      backgroundColor: "#D0D0D0", // изменение фона при фокусировке
+                    },
+                  },
                 }}
                 id="outlined-search"
                 // label="Search"
