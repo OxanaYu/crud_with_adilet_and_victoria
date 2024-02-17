@@ -7,20 +7,19 @@ import { useSearchParams } from "react-router-dom";
 
 const PostList = () => {
   const { posts, getPost } = usePosts();
-  useEffect(() => {
-    getPost();
-  }, []);
+  const [page, setPage] = useState(1);
+  // useEffect(() => {
+  //   getPost();
+  // }, []);
+  //! SEARCH
 
-  // !SEARCH
   const [searchParams, setSearchParams] = useSearchParams();
-
   useEffect(() => {
+    setPage(1);
     getPost();
   }, [searchParams]);
-
   // !PAGINATION
 
-  const [page, setPage] = useState(1);
   const itemPerPage = 8;
   const count = Math.ceil(posts.length / itemPerPage);
   console.log(count);
@@ -51,9 +50,6 @@ const PostList = () => {
           {currentData().map((elem) => (
             <PostCard key={elem.id} elem={elem} />
           ))}
-          {/* {posts.map((elem) => (
-            <PostCard key={elem.id} elem={elem} />
-          ))} */}
         </Box>
         <PaginationControlled
           count={count}

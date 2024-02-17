@@ -2,26 +2,26 @@
   "posts": [
     {
       "photo": "https://smmplanner.com/blog/content/images/2020/08/cover-vidy-kontenta-i-idei-dlya-posta-v-instagram.jpg",
-      "name": "sawdecfv",
-      "description": "swadecfv",
-      "id": 2
+      "name": "Кубики",
+      "description": "Просто кубики с одеждой",
+      "id": 1
     },
     {
       "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-obychaushij-post.png",
-      "name": "Альбом",
-      "description": "бла бла бла",
+      "name": "Гранит науки ",
+      "description": "Просто гранит науки",
       "id": 3
     },
     {
       "photo": "https://smmplanner.com/blog/content/images/2020/08/cover-ideya-iz-zhizni.png",
       "name": "Альбом33333",
-      "description": "Просто альбом2222",
+      "description": "Просто альбом",
       "id": 4
     },
     {
       "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-serial.png",
-      "name": "Альбом",
-      "description": "Тоже просто Альбом",
+      "name": "Реклама кино",
+      "description": "Просто реклама кино",
       "id": 5
     },
     {
@@ -47,6 +47,18 @@
       "name": "Карта",
       "description": "СберБанк наше все!",
       "id": 9
+    },
+    {
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBFrg3kfisFKU6K2P0P_ND-Cqu7lSqlbJzDEfm8ERbzA&s",
+      "name": "NewPostToCheck",
+      "description": "Nice one",
+      "id": 10
+    },
+    {
+      "photo": "jhghjg11111",
+      "name": "hkjhkj",
+      "description": "jhkhk",
+      "id": 11
     }
   ]
 }
