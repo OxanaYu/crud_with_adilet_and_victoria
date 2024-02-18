@@ -80,9 +80,6 @@ const CartContext = ({ children }) => {
       );
     }
 
-    //пересчитать кол-во постов в корзине
-    // cart.subcount = cart.cartLength;
-    // console.log(cart.subcount);
     //обновляем данные в localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
     //обновляем состояние
@@ -100,28 +97,6 @@ const CartContext = ({ children }) => {
       return newCart.length > 0 ? true : false;
     }
   };
-
-  //функция для измнения стоимости за одну позицию
-  // const changeProductCount = (id, count) => {
-  //   // получаем данные корзины из localstorage
-  //   let cart = getLocalStorageCart();
-  //   //перебираем массив с продуктами из корзины, и у продукта, у которого id совпадает с тем id, что передали при вызове, перезаписываем count (кол-во) and subPrice
-  //   cart.products = cart.products.map((elem) => {
-  //     if (elem.item.id === id) {
-  //       elem.count = count;
-  //       elem.subPrice = calcSubPrice(elem);
-  //     }
-  //     return elem;
-  //   });
-  //   cart.totalPrice = calcTotalPrice(cart.products);
-  //   //обновляем localStorgae
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  //   //обновляем состояние
-  //   dispatch({
-  //     type: ACTIONS.GET_CART,
-  //     payload: cart,
-  //   });
-  // };
 
   //! DELETE FROM CART
   const deletePostFromCart = (id) => {

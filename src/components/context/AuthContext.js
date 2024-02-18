@@ -11,7 +11,7 @@ import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../fire";
 import { ACTIONS_USER } from "../../helpers/const";
-const authContext = createContext();
+export const authContext = createContext();
 export const useAuth = () => useContext(authContext);
 
 const INIT_STATE = {
@@ -75,10 +75,10 @@ const AuthContext = ({ children }) => {
   const logOut = async () => {
     try {
       await signOut(auth);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
-    navigate("/");
   };
   const values = {
     authWithGoogle,
