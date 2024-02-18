@@ -131,13 +131,6 @@
       "category": "pink"
     },
     {
-      "photo": "onemore",
-      "name": "more",
-      "description": "more",
-      "category": "blue",
-      "id": 21
-    },
-    {
       "photo": "check",
       "name": "check",
       "description": "check",
@@ -155,14 +148,14 @@
       "photo": "jhjh",
       "name": "hghg",
       "description": "hhkjhkjh",
-      "category": "blue",
+      "category": "red",
       "id": 24
     },
     {
       "photo": "оллоол",
       "name": "ммпип",
       "description": "српмо",
-      "category": "3",
+      "category": "red",
       "id": 25
     }
   ],

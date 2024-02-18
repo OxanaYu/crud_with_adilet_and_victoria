@@ -168,7 +168,9 @@ const Navbar = () => {
             </IconButton>
           )}
           <Typography sx={{ color: "white" }}>
-            {user ? `Hello, ${user.email}` : `Hello, guest. Please register `}
+            {user
+              ? `Hello, ${user.email}`
+              : `Hello, guest. Please register or sign in `}
           </Typography>
           <Menu
             id="menu-appbar"
