@@ -10,10 +10,10 @@ import StarOutlineTwoToneIcon from "@mui/icons-material/StarOutlineTwoTone";
 import { useState } from "react";
 
 const PostCard = ({ elem }) => {
-  const { addPostToCard, checkPostInCart } = useCart();
+  const { addPostToCard, checkPostInCart, deletePostFromCart } = useCart();
   const navigate = useNavigate();
   const { deletePost, increaseLikes } = usePosts();
-  const { addPostToBookmarks, checkPostInBm } = useBM();
+  const { addPostToBookmarks, checkPostInBm, deletePostFromBM } = useBM();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isButtonActive, setIsButtonActive] = useState(false);
 
@@ -38,12 +38,18 @@ const PostCard = ({ elem }) => {
     increaseLikes(); // Вызываем функцию увеличения лайков из контекста
   };
 
+  const handleDelete = () => {
+    deletePost(elem.id);
+    deletePostFromCart(elem.id);
+    deletePostFromBM(elem.id);
+  };
+
   return (
     <div className="card">
       <img src={elem.photo} alt="" />
       <h3>{elem.name}</h3>
       <p>{elem.description}</p>
-      <button className="button" onClick={() => deletePost(elem.id)}>
+      <button className="button" onClick={handleDelete}>
         Delete
       </button>
       <button className="button" onClick={() => navigate(`/edit/${elem.id}`)}>

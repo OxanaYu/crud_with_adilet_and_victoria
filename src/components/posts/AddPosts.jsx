@@ -57,13 +57,14 @@ const AddPosts = () => {
       <div className="input">
         <select
           id="categorySelect"
-          onchange={(e) => setCategory(e.target.value)}
+          onChange={(e) => setCategory(e.target.value)}
         >
-          {categories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.name}
-            </option>
-          ))}
+          {categories.length > 0 &&
+            categories.map((category) => (
+              <option key={category.id} value={category.name}>
+                {category.name}
+              </option>
+            ))}
         </select>
       </div>
       <button className="button" onClick={handleAddPost}>
