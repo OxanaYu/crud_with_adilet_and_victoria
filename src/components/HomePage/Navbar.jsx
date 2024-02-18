@@ -23,9 +23,11 @@ import { usePosts } from "../context/PostContext";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useCart } from "../context/CartContext";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { ADMIN } from "../../helpers/const";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth;
+  const { user, logOut } = useAuth();
+  // console.log(user.email);
   const { likesCount } = usePosts();
   const { addPostToCard, getPostsCountInCart } = useCart();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,13 +51,13 @@ const Navbar = () => {
 
   const [anchorEl, setAnchorEl] = useState(null);
 
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const handleLogOut = () => {
     logOut();
     handleClose(); // Закрываем меню после выхода
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
   };
 
   const handleMenu = (event) => {
@@ -72,6 +74,8 @@ const Navbar = () => {
     }
   };
 
+  const isAdmin = user && user === ADMIN; // Проверяем, является ли пользователь администратором
+
   return (
     <Box
       sx={{
@@ -81,9 +85,6 @@ const Navbar = () => {
     >
       <AppBar sx={{ background: "#383838" }} position="static">
         <Toolbar>
-          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-          </Typography> */}
           {pages.map((elem) => (
             <MenuItem key={elem.id}>
               <Link
@@ -103,19 +104,17 @@ const Navbar = () => {
                   borderRadius: "45px",
                   border: "3px solid #ccc",
                   height: "27px",
-
                   "&:hover": {
                     "& .MuiFilledInput-root": {
-                      borders: "#D0D0D0", // чтобы сохранить границы
+                      borders: "#D0D0D0",
                       transition: "background-color 200ms linear",
                     },
                     "&:focus": {
-                      backgroundColor: "#D0D0D0", // изменение фона при фокусировке
+                      backgroundColor: "#D0D0D0",
                     },
                   },
                 }}
                 id="outlined-search"
-                // label="Search"
                 type="search"
                 fullWidth
                 variant="standard"
@@ -131,18 +130,18 @@ const Navbar = () => {
               />
             </Grid>
           </Grid>
-          <Link to={"/cart"}>
-            <Badge badgeContent={badgeCount} color="success">
-              <ShoppingCartIcon sx={{ color: "white" }} />
-            </Badge>
-          </Link>
-
+          {!isAdmin && (
+            <Link to={"/cart"}>
+              <Badge badgeContent={badgeCount} color="success">
+                <ShoppingCartIcon sx={{ color: "white" }} />
+              </Badge>
+            </Link>
+          )}
           <IconButton size="large" color="inherit">
             <Badge badgeContent={likesCount} color="success">
               <FavoriteIcon />
             </Badge>
           </IconButton>
-
           {user ? (
             <Tooltip title={user.email}>
               <IconButton
@@ -168,7 +167,9 @@ const Navbar = () => {
               <AccountCircle />
             </IconButton>
           )}
-
+          <Typography sx={{ color: "white" }}>
+            {user ? `Hello, ${user.email}` : `Hello, guest. Please register `}
+          </Typography>
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
@@ -183,30 +184,22 @@ const Navbar = () => {
             }}
             open={Boolean(anchorEl)}
             onClose={handleClose}
-            onClick={handleOutsideClick} // Обработчик клика вне меню
+            onClick={handleOutsideClick}
           >
-            {user
-              ? [
-                  <Link to="/auth" key="register">
-                    <MenuItem onClick={handleMenuItemClick}>Register</MenuItem>
-                  </Link>,
-                  <Link to="/login" key="signin">
-                    <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
-                  </Link>,
-                  <Link to="/" key="logout">
-                    <MenuItem key="logout" onClick={handleLogOut}>
-                      Log Out
-                    </MenuItem>
-                  </Link>,
-                ]
-              : [
-                  <Link to="/auth" key="register">
-                    <MenuItem onClick={handleMenuItemClick}>Register</MenuItem>
-                  </Link>,
-                  <Link to="/login" key="signin">
-                    <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
-                  </Link>,
-                ]}
+            {user ? (
+              <div>
+                <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
+              </div>
+            ) : (
+              <div>
+                <Link to="/auth">
+                  <MenuItem onClick={handleMenuItemClick}>Register</MenuItem>
+                </Link>
+                <Link to="/login">
+                  <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
+                </Link>
+              </div>
+            )}
           </Menu>
         </Toolbar>
       </AppBar>

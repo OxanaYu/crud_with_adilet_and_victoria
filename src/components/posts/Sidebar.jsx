@@ -20,7 +20,7 @@ const Sidebar = () => {
     getCategories();
   }, []);
   return (
-    <Paper style={{ height: "100vh", width: "40%" }} sx={{ p: 2 }}>
+    <Paper style={{ height: "100%", width: "40%" }} sx={{ p: 2 }}>
       <FormControl>
         <FormLabel
           sx={{ marginBottom: "20px", alignSelf: "center" }}
