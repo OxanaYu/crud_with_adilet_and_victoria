@@ -13,10 +13,12 @@ body {
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  display: inline-block;
+  display: flex;
   flex-wrap: wrap;
   font-family: "M PLUS 1p", sans-serif;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .card:hover {

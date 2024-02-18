@@ -4,10 +4,12 @@ import { usePosts } from "../context/PostContext";
 import { Box } from "@mui/material";
 import PaginationControlled from "./Pagination";
 import { useSearchParams } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const PostList = () => {
   const { posts, getPost } = usePosts();
   const [page, setPage] = useState(1);
+  const { user } = useAuth();
   // useEffect(() => {
   //   getPost();
   // }, []);
@@ -33,9 +35,9 @@ const PostList = () => {
     console.log(value);
   };
 
-  useEffect(() => {
-    getPost();
-  }, []);
+  // useEffect(() => {
+  //   getPost();
+  // }, []);
   return (
     <div>
       <div>

@@ -1,8 +1,10 @@
 import React from "react";
 import PostList from "../components/posts/PostList";
 import Sidebar from "../components/posts/Sidebar";
+import { useState } from "react";
 
 const PostPage = () => {
+  const [page, setPage] = useState(1);
   return (
     <div
       style={{
@@ -12,9 +14,9 @@ const PostPage = () => {
       }}
     >
       <div style={{ width: "300px", flex: "none" }}>
-        <Sidebar />
+        <Sidebar page={page} setPage={setPage} />
       </div>
-      <PostList />
+      <PostList setPage={setPage} />
     </div>
   );
 };

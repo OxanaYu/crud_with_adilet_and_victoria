@@ -13,7 +13,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { usePosts } from "../context/PostContext";
 
-const Sidebar = () => {
+const Sidebar = ({ page, setPage }) => {
   const { categories, getCategories, fetchByParams } = usePosts();
 
   useEffect(() => {
@@ -32,7 +32,10 @@ const Sidebar = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => fetchByParams("category", "all")}
+            onClick={() => {
+              fetchByParams("category", "all");
+              setPage(1); // Добавляем сюда сброс страницы
+            }}
             sx={{
               marginBottom: 1,
               borderRadius: 1,
