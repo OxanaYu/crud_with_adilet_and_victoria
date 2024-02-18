@@ -53,13 +53,15 @@
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Mem.png",
       "name": "Classical music humar",
       "description": "Classical music humar cartoon",
-      "id": 8
+      "id": 8,
+      "category": "red"
     },
     {
       "photo": "https://pm1.aminoapps.com/7052/ea80d62d030231b5af6fa63022db0054260d7a51r1-710-650v2_00.jpg",
       "name": "Кино",
       "description": "Звезда сериала 'Очень странные дела'",
-      "id": 9
+      "id": 9,
+      "category": "movie"
     },
     {
       "photo": "https://static.stereogum.com/uploads/2021/07/mtv-first-day-1981-videos-1627506945.jpg",
@@ -71,7 +73,8 @@
       "photo": "https://neiros.ru/images/b10a936e6fe5d5ca5355c058f79a57cf.png",
       "name": "Ava",
       "description": "just speak it",
-      "id": 11
+      "id": 11,
+      "category": "quote"
     },
     {
       "photo": "more",
@@ -90,13 +93,15 @@
       "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-obychaushij-post.png",
       "name": "Альбом",
       "description": "бла бла бла",
-      "id": 14
+      "id": 14,
+      "category": "blue"
     },
     {
       "photo": "https://smmplanner.com/blog/content/images/2020/08/cover-ideya-iz-zhizni.png",
       "name": "Альбом",
       "description": "Просто альбом",
-      "id": 15
+      "id": 15,
+      "category": "red"
     },
     {
       "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-serial.png",
@@ -108,25 +113,29 @@
       "photo": "https://e-pepper.ru/upload/resize_cache/iblock/60f/846_665_0/60f06742c3f014223df89d0ba9b6dcef.png",
       "name": "Корзина",
       "description": "Красивая корзинка",
-      "id": 17
+      "id": 17,
+      "category": "pink"
     },
     {
       "photo": "https://static.tildacdn.com/tild6536-6339-4639-a563-306636363664/blog_loyal.png",
       "name": "Подарок",
       "description": "Просто подарок",
-      "id": 18
+      "id": 18,
+      "category": "red"
     },
     {
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKYEb-fo0W_NmexYjR5OWlRzegVktJwkhBZz7IWad8yBcg9xd8I-2MCHuO1P0sAAJLWZM&usqp=CAU",
       "name": "Кошелек",
       "description": "Просто кошелек",
-      "id": 19
+      "id": 19,
+      "category": "pink"
     },
     {
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqhcZMz0t6uolknzsTQXodiz59t5ZeLpq5gzcGrnjhuX8O7Aj9lruYPSIPvnP8uOEcO1s&usqp=CAU",
       "name": "Карта",
       "description": "СберБанк наше все!",
-      "id": 20
+      "id": 20,
+      "category": "pink"
     }
   ],
   "categories": [

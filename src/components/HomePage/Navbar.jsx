@@ -25,7 +25,7 @@ import { useCart } from "../context/CartContext";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Navbar = () => {
-  const { user, LogOut } = useAuth;
+  const { user, logOut } = useAuth;
   const { likesCount } = usePosts();
   const { addPostToCard, getPostsCountInCart } = useCart();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -50,7 +50,7 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleLogOut = () => {
-    LogOut();
+    logOut();
     handleClose(); // Закрываем меню после выхода
   };
 
@@ -193,9 +193,11 @@ const Navbar = () => {
                   <Link to="/login" key="signin">
                     <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
                   </Link>,
-                  <MenuItem key="logout" onClick={handleLogOut}>
-                    Log Out
-                  </MenuItem>,
+                  <Link to="/" key="logout">
+                    <MenuItem key="logout" onClick={handleLogOut}>
+                      Log Out
+                    </MenuItem>
+                  </Link>,
                 ]
               : [
                   <Link to="/auth" key="register">

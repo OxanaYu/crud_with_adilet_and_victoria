@@ -4,7 +4,13 @@ import Sidebar from "../components/posts/Sidebar";
 
 const PostPage = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
+    <div
+      style={{
+        width: "250px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
       <div style={{ width: "300px", flex: "none" }}>
         <Sidebar />
       </div>
