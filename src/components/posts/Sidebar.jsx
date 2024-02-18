@@ -1,4 +1,5 @@
 import {
+  Button,
   FormControl,
   FormControlLabel,
   FormLabel,
@@ -19,25 +20,45 @@ const Sidebar = () => {
     getCategories();
   }, []);
   return (
-    <Paper sx={{ p: 2 }}>
+    <Paper style={{ height: "100vh", width: "40%" }} sx={{ p: 2 }}>
       <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label">Category</FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-radio-buttons-group-label"
-          defaultValue="female"
-          name="radio-buttons-group"
-          onChange={(e) => fetchByParams("category", e.target.value)}
+        <FormLabel
+          sx={{ marginBottom: "20px", alignSelf: "center" }}
+          id="demo-radio-buttons-group-label"
         >
-          <FormControlLabel control={<Radio />} value={"all"} label={"All"} />
+          Category
+        </FormLabel>
+        <div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => fetchByParams("category", "all")}
+            sx={{
+              marginBottom: 1,
+              borderRadius: 1,
+              width: "100%",
+              backgroundColor: "rgb(197, 132, 132)",
+            }}
+          >
+            All
+          </Button>
           {categories.map((elem) => (
-            <FormControlLabel
+            <Button
               key={elem.id}
-              value={elem.name}
-              label={elem.name}
-              control={<Radio />}
-            />
+              variant="contained"
+              color="primary"
+              onClick={() => fetchByParams("category", elem.name)}
+              sx={{
+                marginBottom: 1,
+                borderRadius: 1,
+                width: "100%",
+                backgroundColor: "rgb(197, 132, 132)",
+              }}
+            >
+              {elem.name}
+            </Button>
           ))}
-        </RadioGroup>
+        </div>
       </FormControl>
     </Paper>
   );
