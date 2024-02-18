@@ -4,44 +4,50 @@
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Quote.png",
       "name": "Цитата",
       "description": "Довольно старая, но популярная идея для поста — цитата",
-      "id": 1
+      "id": 1,
+      "category": "quote"
     },
     {
       "photo": "https://share.america.gov/wp-content/uploads/2023/03/oscars_ke_huy_quanGettyImages-1473129632.jpg",
       "name": "В мире Кино",
       "description": "'Бывший беженец удостоен “Оскара”' ",
-      "id": 2
+      "id": 2,
+      "category": "movie"
     },
     {
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Compilation.png",
       "name": "Полярная станция",
       "description": "Современная полярная станция",
       "id": 3,
-      "category": "Зеленый"
+      "category": "blue"
     },
     {
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Photo-of-the-day.png",
       "name": "Телебашня Останкина",
       "description": "Телебашня Останкина покрылась инеем",
-      "id": 4
+      "id": 4,
+      "category": "blue"
     },
     {
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Congratulation.png",
       "name": "Реклама",
       "description": "Скидка 10% на подписку в январе",
-      "id": 5
+      "id": 5,
+      "category": "red"
     },
     {
       "photo": "https://www.nasa.gov/wp-content/uploads/2023/07/iss069e018537-1.jpg?w=2048",
       "name": "NASA",
       "description": "NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.",
-      "id": 6
+      "id": 6,
+      "category": "blue"
     },
     {
       "photo": "https://data.vb.kg/image/big/2018-09-06_12-53-58_480467.jpg",
       "name": "Игры Кочевников",
       "description": "Так кто же придумал Всемирные игры кочевников?",
-      "id": 7
+      "id": 7,
+      "category": "movie"
     },
     {
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Mem.png",
@@ -73,20 +79,76 @@
       "description": "more",
       "category": "",
       "id": 12
+    },
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/08/cover-vidy-kontenta-i-idei-dlya-posta-v-instagram.jpg",
+      "name": "sawdecfv",
+      "description": "swadecfv",
+      "id": 13
+    },
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-obychaushij-post.png",
+      "name": "Альбом",
+      "description": "бла бла бла",
+      "id": 14
+    },
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/08/cover-ideya-iz-zhizni.png",
+      "name": "Альбом",
+      "description": "Просто альбом",
+      "id": 15
+    },
+    {
+      "photo": "https://smmplanner.com/blog/content/images/2020/09/cover-ideya-dlya-posta-serial.png",
+      "name": "Альбом",
+      "description": "Тоже просто Альбом",
+      "id": 16
+    },
+    {
+      "photo": "https://e-pepper.ru/upload/resize_cache/iblock/60f/846_665_0/60f06742c3f014223df89d0ba9b6dcef.png",
+      "name": "Корзина",
+      "description": "Красивая корзинка",
+      "id": 17
+    },
+    {
+      "photo": "https://static.tildacdn.com/tild6536-6339-4639-a563-306636363664/blog_loyal.png",
+      "name": "Подарок",
+      "description": "Просто подарок",
+      "id": 18
+    },
+    {
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKYEb-fo0W_NmexYjR5OWlRzegVktJwkhBZz7IWad8yBcg9xd8I-2MCHuO1P0sAAJLWZM&usqp=CAU",
+      "name": "Кошелек",
+      "description": "Просто кошелек",
+      "id": 19
+    },
+    {
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqhcZMz0t6uolknzsTQXodiz59t5ZeLpq5gzcGrnjhuX8O7Aj9lruYPSIPvnP8uOEcO1s&usqp=CAU",
+      "name": "Карта",
+      "description": "СберБанк наше все!",
+      "id": 20
     }
   ],
   "categories": [
     {
-      "name": "розовые",
+      "name": "pink",
       "id": 1
     },
     {
-      "name": "красные",
+      "name": "red",
       "id": 2
     },
     {
-      "name": "синие",
+      "name": "blue",
       "id": 3
+    },
+    {
+      "name": "movie",
+      "id": 4
+    },
+    {
+      "name": "quote",
+      "id": 5
     }
   ]
 }
