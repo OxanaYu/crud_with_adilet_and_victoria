@@ -5,14 +5,13 @@ export const getLocalStorageCart = () => {
 };
 
 //функция для подсчета суммы всех товаров
-export const calcTotalPrice = (products) => {
-  const totalPrice = products.reduce((acc, curr) => acc + curr.subPrice, 0);
-  return totalPrice;
-};
+// export const calcTotalPrice = (products) => {
+//   const totalPrice = products.reduce((acc, curr) => acc + curr.subPrice, 0);
+//   return totalPrice;
+// };
 
-// ? Сверить,что приходит в cart, какие там ключи
 // функция для подсчета всех товаров в корзине
-export const getProductsCountInCart = () => {
+export const getPostsCountInCart = () => {
   let cart = getLocalStorageCart();
   return cart ? cart.postsincart.length : 0;
 };

@@ -27,12 +27,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const Navbar = () => {
   const { user, LogOut } = useAuth;
   const { likesCount } = usePosts();
-  const { addPostToCard, getProductsCountInCart } = useCart();
+  const { addPostToCard, getPostsCountInCart } = useCart();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
   const [badgeCount, setBadgeCount] = useState(0);
   useEffect(() => {
-    setBadgeCount(getProductsCountInCart());
+    setBadgeCount(getPostsCountInCart());
   }, [addPostToCard]);
 
   useEffect(() => {
@@ -119,6 +119,7 @@ const Navbar = () => {
                 type="search"
                 fullWidth
                 variant="standard"
+                onInput={(e) => setSearch(e.target.value)}
                 InputProps={{
                   disableUnderline: true,
                   startAdornment: (
@@ -137,7 +138,7 @@ const Navbar = () => {
           </Link>
 
           <IconButton size="large" color="inherit">
-            <Badge badgeContent={likesCount} color="white">
+            <Badge badgeContent={likesCount} color="success">
               <FavoriteIcon />
             </Badge>
           </IconButton>
@@ -184,26 +185,26 @@ const Navbar = () => {
             onClose={handleClose}
             onClick={handleOutsideClick} // Обработчик клика вне меню
           >
-            {user ? (
-              <>
-                <Link to="/auth">
-                  <MenuItem onClick={handleMenuItemClick}>Register</MenuItem>
-                </Link>
-                <Link to="/login">
-                  <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
-                </Link>
-                <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
-              </>
-            ) : (
-              <>
-                <Link to="/auth">
-                  <MenuItem onClick={handleMenuItemClick}>Register</MenuItem>
-                </Link>
-                <Link to="/login">
-                  <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
-                </Link>
-              </>
-            )}
+            {user
+              ? [
+                  <Link to="/auth" key="register">
+                    <MenuItem onClick={handleMenuItemClick}>Register</MenuItem>
+                  </Link>,
+                  <Link to="/login" key="signin">
+                    <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
+                  </Link>,
+                  <MenuItem key="logout" onClick={handleLogOut}>
+                    Log Out
+                  </MenuItem>,
+                ]
+              : [
+                  <Link to="/auth" key="register">
+                    <MenuItem onClick={handleMenuItemClick}>Register</MenuItem>
+                  </Link>,
+                  <Link to="/login" key="signin">
+                    <MenuItem onClick={handleMenuItemClick}>Sign In</MenuItem>
+                  </Link>,
+                ]}
           </Menu>
         </Toolbar>
       </AppBar>

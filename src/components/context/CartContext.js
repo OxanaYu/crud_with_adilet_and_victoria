@@ -3,7 +3,7 @@ import { ACTIONS } from "../../helpers/const";
 import {
   calcTotalPrice,
   getLocalStorageCart,
-  getProductsCountInCart,
+  getPostsCountInCart,
 } from "../../helpers/functions";
 
 const incartContext = createContext();
@@ -11,7 +11,7 @@ export const useCart = () => useContext(incartContext);
 
 const INIT_STATE = {
   cart: JSON.parse(localStorage.getItem("cart")),
-  cartLength: getProductsCountInCart(),
+  cartLength: getPostsCountInCart(),
 };
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
@@ -42,6 +42,9 @@ const CartContext = ({ children }) => {
         postsincart: [],
         subCount: 0,
       };
+    } else {
+      // Получаем длину массива postsincart и сохраняем ее в cartSubcount
+      cart.subCount = cart.postsincart.length;
     }
     dispatch({
       type: ACTIONS.GET_CART,
@@ -77,8 +80,9 @@ const CartContext = ({ children }) => {
       );
     }
 
-    //пересчитать totalPrice
-    cart.subcount = calcTotalPrice(cart.postsincart);
+    //пересчитать кол-во постов в корзине
+    // cart.subcount = cart.cartLength;
+    // console.log(cart.subcount);
     //обновляем данные в localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
     //обновляем состояние
@@ -136,7 +140,7 @@ const CartContext = ({ children }) => {
     cart: state.cart,
     getCart,
     checkPostInCart,
-    getProductsCountInCart,
+    getPostsCountInCart,
     deletePostFromCart,
   };
 
