@@ -24,8 +24,10 @@ const PostCard = ({ elem }) => {
   const [inputComment, setInputComment] = useState(""); // Локальная переменная для хранения значения из инпута
 
   // Обработчик для сохранения комментария после нажатия на кнопку
-  const handleAddComment = () => {
+  const handleAddComment = (e) => {
+    e.preventDefault();
     setComment(inputComment); // Обновляем состояние комментария
+    setInputComment("");
   };
 
   // Обработчик для изменения локальной переменной при изменении инпута
