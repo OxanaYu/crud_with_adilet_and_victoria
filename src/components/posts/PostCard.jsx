@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { usePosts } from "../context/PostContext";
 import { useBM } from "../context/BookMarksContext";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +7,7 @@ import { AddShoppingCart } from "@mui/icons-material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import StarOutlineTwoToneIcon from "@mui/icons-material/StarOutlineTwoTone";
+import { useState } from "react";
 
 const PostCard = ({ elem }) => {
   const { addPostToCard, checkPostInCart, deletePostFromCart } = useCart();
@@ -15,6 +15,7 @@ const PostCard = ({ elem }) => {
   const { deletePost, increaseLikes } = usePosts();
   const { addPostToBookmarks, checkPostInBm, deletePostFromBM } = useBM();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [isButtonActive, setIsButtonActive] = useState(false);
 
   const handleAddToBookmarks = () => {
     // Проверяем, есть ли пост уже в избранном
@@ -26,6 +27,7 @@ const PostCard = ({ elem }) => {
     } else {
       console.log("Пост уже в избранном");
     }
+    setIsButtonActive(true);
     // если пост уже добавлен, в консоли выйдет сообщение
   };
 
@@ -61,8 +63,11 @@ const PostCard = ({ elem }) => {
         <StarOutlineTwoToneIcon
           onClick={handleAddToBookmarks}
           sx={{
-            marginBottom: "-8px",
+            marginBottom: "-10px",
             marginRight: "-140px",
+            width: "30px",
+            height: "30px",
+            color: isButtonActive ? "yellow" : "inherit", // Устанавливаем цвет в зависимости от состояния
           }}
         />
 
