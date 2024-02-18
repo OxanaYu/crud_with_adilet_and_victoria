@@ -36,8 +36,7 @@ const Cart = () => {
             <TableCell align="right">Description</TableCell>
 
             <TableCell align="right">Count</TableCell>
-            <TableCell align="right">SubPrice</TableCell>
-            <TableCell align="right">-</TableCell>
+            <TableCell align="right">Remove</TableCell>
           </TableRow>
         </TableHead>
 
@@ -53,18 +52,10 @@ const Cart = () => {
                 <img src={elem.item.photo} alt="" width={70} />
               </TableCell>
               <TableCell align="right">{elem.item.name}</TableCell>
-              {/* <TableCell align="right">{elem.item.category}</TableCell> */}
+              <TableCell align="right">{elem.item.category}</TableCell>
               <TableCell align="right">{elem.item.description}</TableCell>
               <TableCell align="right">
-                <input
-                  //   onChange={(e) => {
-                  //     changeProductCount(elem.item.id, e.target.value);
-                  //   }}
-                  type="number"
-                  min={1}
-                  max={20}
-                  //   defaultValue={elem.count}
-                />
+                <input type="number" min={1} max={1} defaultValue={1} />
               </TableCell>
               {/* <TableCell align="right">{elem.subPrice}</TableCell> */}
               <TableCell align="right">
@@ -76,7 +67,7 @@ const Cart = () => {
           ))}
         </TableBody>
       </Table>
-      {/* <Button onClick={cartCliner}>BUY NOW FOR {cart.totalPrice}</Button> */}
+      <Button>NOW THERE ARE {cart.subCount} POSTS IN CART</Button>
     </TableContainer>
   );
 };

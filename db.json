@@ -16,7 +16,8 @@
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Compilation.png",
       "name": "Полярная станция",
       "description": "Современная полярная станция",
-      "id": 3
+      "id": 3,
+      "category": "Зеленый"
     },
     {
       "photo": "https://www.spcdn.org/blog/wp-content/uploads/2021/05/Photo-of-the-day.png",
@@ -65,6 +66,27 @@
       "name": "Ava",
       "description": "just speak it",
       "id": 11
+    },
+    {
+      "photo": "more",
+      "name": "more",
+      "description": "more",
+      "category": "",
+      "id": 12
+    }
+  ],
+  "categories": [
+    {
+      "name": "розовые",
+      "id": 1
+    },
+    {
+      "name": "красные",
+      "id": 2
+    },
+    {
+      "name": "синие",
+      "id": 3
     }
   ]
 }

@@ -1,25 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePosts } from "../context/PostContext";
 
 const AddPosts = () => {
-  const { addPost, getPost } = usePosts();
+  const { addPost, getPost, categories, getCategories } = usePosts();
   const [photo, setPhoto] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleAddPost = async () => {
     const newPost = {
       photo,
       name,
       description,
+      category,
     };
 
     await addPost(newPost);
     setPhoto("");
     setName("");
     setDescription("");
+    setCategory("");
     await getPost();
   };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   return (
     <div className="cardInput">
@@ -46,6 +53,18 @@ const AddPosts = () => {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
         />
+      </div>
+      <div className="input">
+        <select
+          id="categorySelect"
+          onchange={(e) => setCategory(e.target.value)}
+        >
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
       </div>
       <button className="button" onClick={handleAddPost}>
         Add Post

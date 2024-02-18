@@ -84,7 +84,7 @@ const PostCard = ({ elem }) => {
             <FavoriteBorderIcon />
           )}
         </IconButton>
-        <div class="input-with-button">
+        <div className="input-with-button">
           <input type="text" placeholder="Add your comment" />
           <button type="button">Button</button>
         </div>

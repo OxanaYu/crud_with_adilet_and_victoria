@@ -10,6 +10,7 @@ const EditPost = () => {
     photo: "",
     name: "",
     description: "",
+    category: "",
   });
 
   useEffect(() => {
@@ -54,6 +55,14 @@ const EditPost = () => {
           name="description"
           type="text"
           value={posts.description}
+          onChange={handleInput}
+        />
+      </div>
+      <div className="input">
+        <input
+          name="category"
+          type="text"
+          value={posts.category}
           onChange={handleInput}
         />
       </div>
